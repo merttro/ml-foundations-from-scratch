@@ -19,12 +19,12 @@ def compute_gradient(x,y,w,b):
     dj_db = np.sum(db) / m
     return dj_dw, dj_db
 
-"""x = np.array([1.0, 2.0])
+x = np.array([1.0, 2.0])
 y = np.array([300.0, 500.0])
 w, b = 200, 100  
 
 dj_dw, dj_db = compute_gradient(x, y, w, b)
-print(dj_dw, dj_db)  """
+print(dj_dw, dj_db)  
 
 ###2.
 
