@@ -42,40 +42,40 @@ if __name__ == "__main__":
     print(f"X_norm max: {X_norm.max(axis=0)}")
 
 ###3.
-from day04_multivariate import gradient_descent_multi
-w_init = np.zeros(X_norm.shape[1])
-b_init = 0
-alpha = 0.1
-num_iters = 1000
-w, b ,history = gradient_descent_multi(X_norm, y, w_init, b_init, alpha, num_iters)
-print(f"Final w: {w}")
-print(f"Final b: {b:.2f}")
-print(f"Final cost: {history[-1]:.2f}")
+    from day04_multivariate import gradient_descent_multi
+    w_init = np.zeros(X_norm.shape[1])
+    b_init = 0
+    alpha = 0.1
+    num_iters = 1000
+    w, b ,history = gradient_descent_multi(X_norm, y, w_init, b_init, alpha, num_iters)
+    print(f"Final w: {w}")
+    print(f"Final b: {b:.2f}")
+    print(f"Final cost: {history[-1]:.2f}")
 
-###4.
-w_init = np.zeros(X_norm.shape[1])
-b_init = 0
-alpha = [0.001 , 0.01 , 0.1 , 1.0]
-num_iters = 1000
-plt.figure()
-for a in alpha:
-    _, _, hist = gradient_descent_multi(X_norm, y, w_init, b_init, a, num_iters)
-    plt.plot(hist, label="alpha=" + str(a))
+    ###4.
+    w_init = np.zeros(X_norm.shape[1])
+    b_init = 0
+    alpha = [0.001 , 0.01 , 0.1 , 1.0]
+    num_iters = 1000
+    plt.figure()
+    for a in alpha:
+        _, _, hist = gradient_descent_multi(X_norm, y, w_init, b_init, a, num_iters)
+        plt.plot(hist, label="alpha=" + str(a))
 
-plt.xlabel('Iteration')
-plt.ylabel('Cost')
-plt.title('Day 5 - Alpha Comparison')
-plt.legend()
-plt.savefig('plots/day05_alpha_compare.png')
-plt.show()
+    plt.xlabel('Iteration')
+    plt.ylabel('Cost')
+    plt.title('Day 5 - Alpha Comparison')
+    plt.legend()
+    plt.savefig('plots/day05_alpha_compare.png')
+    plt.show()
 
 
-###5.
+    ###5.
 
-x_new = [1200,3]
-x_new_norm = (x_new - mu) / sigma
-predict = np.dot(x_new_norm, w) + b
-prediction = np.dot(x_new_norm, w) + b
-print(f"\nTahmin (1200 sqft, 3 yatak): ${prediction:,.0f}")
+    x_new = [1200,3]
+    x_new_norm = (x_new - mu) / sigma
+    predict = np.dot(x_new_norm, w) + b
+    prediction = np.dot(x_new_norm, w) + b
+    print(f"\nTahmin (1200 sqft, 3 yatak): ${prediction:,.0f}")
 
 
